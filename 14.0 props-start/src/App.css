@@ -1,0 +1,37 @@
+/* ===== CSS CHO SECTION LỜI CHÀO ===== */
+#greeting {
+  margin: 20px 0;
+}
+
+#greeting h2 {
+  margin-bottom: 15px;
+}
+
+/* Button cập nhật lời chào */
+.greeting-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.greeting-button:hover {
+  background-color: #ad2912;
+}
+
+/* Div hiển thị lời chào */
+.greeting-display {
+  padding: 15px;
+  background-color: #f0f8ff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
