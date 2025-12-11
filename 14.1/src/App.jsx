@@ -5,8 +5,19 @@ import { myData, EXAMPLES } from "../data.js";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
-  console.log("App được gọi");
+  const [selectedTopic, setSelectedTopic] = useState();
+  let tabContent = <p>vui long click vao nut de chon topic</p>;
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].desc}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
 
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
@@ -34,28 +45,32 @@ function App() {
             <TabButton onSelect={()=>{handleSelect('props')}}>Props</TabButton>
             <TabButton onSelect={()=>{handleSelect('state')}}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            {/* dung dot notation */}
-            {/* <h3>{EXAMPLES.components.title}</h3>
-            <p>{EXAMPLES.components.desc}</p>
-            <pre>
-              <code>{EXAMPLES.components.code}</code>
-            </pre> */}
 
-            {/* dùng bracket notation */}
-            {/* <h3>{EXAMPLES["jsx"].title}</h3>
-            <p>{EXAMPLES["jsx"].desc}</p>
-            <pre>
-              <code>{EXAMPLES["jsx"].code}</code>
-            </pre> */}
-            {/* phải set useState của selectedTopic đầu tiên phải là Components */}
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].desc}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
-          {selectedTopic}
+          {/* cách 1: dung toan tu 3 ngoi */}
+          {!selectedTopic ? (
+            <p>vui long click vao nut de chon topic</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].desc}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
+          {/* cách 2: dung && */}
+          {!selectedTopic && <p>vui long click vao nut de chon topic</p>}
+          {selectedTopic && (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].desc}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
+          {/* cach 3: khai bao rieng biet */}
+          {tabContent}
         </section>
       </main>
     </>
