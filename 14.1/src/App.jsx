@@ -5,6 +5,8 @@ import { myData, EXAMPLES } from "../data.js";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  // const kq = myData.map((item) => ({ ...item }));
+  // console.log("kq", kq);
   const [selectedTopic, setSelectedTopic] = useState();
   let tabContent = <p>vui long click vao nut de chon topic</p>;
   if (selectedTopic) {
@@ -24,15 +26,20 @@ function App() {
   }
   return (
     <>
+      {/* {["xin chao", "tam biet", 1, 2, 3]}
+      {[<p>xin chao</p>, <p>tam biet</p>]} */}
       <Header />
       <main>
         <section id="core-concepts">
           <h2>Khái niệm chính trong React</h2>
           <ul>
-            <MainContent {...myData[0]} />
+            {/* <MainContent {...myData[0]} />
             <MainContent {...myData[1]} />
             <MainContent {...myData[2]} />
-            <MainContent {...myData[3]} />
+            <MainContent {...myData[3]} /> */}
+            {myData.map((item) => (
+              <MainContent key={item.title} {...item} />
+            ))}
           </ul>
         </section>
 
