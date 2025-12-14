@@ -46,7 +46,8 @@ function App() {
         >
           {/* prettier-ignore */}
           <Tabs
-            ButtonsContainer="menu"
+          // neu khong truyen se lay gia tri mac dinh duoc dat trong Tabs.jsx
+            //ButtonsContainer="menu"
             button={
               <>
                 <TabButton
