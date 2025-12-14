@@ -46,6 +46,7 @@ function App() {
         >
           {/* prettier-ignore */}
           <Tabs
+            ButtonsContainer="menu"
             button={
               <>
                 <TabButton
