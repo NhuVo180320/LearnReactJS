@@ -3,16 +3,33 @@ import "./App.css";
 
 function App() {
   //khai bao state de luu gia tri
-  const [playerName, setPlayerName] = useState("PlayerName");
+  console.log("run");
+  const [user, setUser] = useState({ playerName: "", email: "" });
   const handleChange = (event) => {
-    setPlayerName(event.target.value);
+    const { name, value } = event.target;
+    //setUser({ ...user, [name]: value });
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+    console.log(user);
   };
 
   return (
     <>
       <h2>nhap ten nguoi choi: </h2>
-      <input type="text" value={playerName} onChange={handleChange}></input>
-      <p>Xin chao: {playerName}</p>
+      <input
+        type="text"
+        name="playerName"
+        value={user.playerName}
+        onChange={handleChange}
+      ></input>
+      <p>Xin chao: {user.playerName}</p>
+      <h2>nhap email nguoi choi: </h2>
+      <input
+        type="text"
+        name="email"
+        value={user.email}
+        onChange={handleChange}
+      ></input>
+      <p>Email: {user.email}</p>
     </>
   );
 }
