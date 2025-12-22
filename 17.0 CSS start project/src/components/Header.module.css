@@ -30,6 +30,9 @@ Header p {
   margin: 0;
 }
 
+.my-paragraph {
+  color: rgb(220, 255, 94);
+}
 @media (min-width: 768px) {
   header {
     margin-bottom: 4rem;
