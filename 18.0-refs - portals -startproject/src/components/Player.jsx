@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 
 export default function Player() {
+  //useRef chi tham chieu truy cap thuoc tinh phan tu nhung khong render lai giao dien nen phai dung useState de luu tru gia tri va render lai giao dien
   const [enteredPlayerName, setPlayerName] = useState(false);
   //   const [submited, setSubmited] = useState(false);
   const nameInputRef = useRef();
