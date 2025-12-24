@@ -9,7 +9,7 @@ export default function TimeStoper({ title, targetTime }) {
   function handleStart() {
     timerRef.current = setTimeout(() => {
       setTimerExpired(true);
-      dialog.current.showModal();
+      dialog.current.open();
     }, targetTime * 1000);
     setTimerStart(true);
   }
