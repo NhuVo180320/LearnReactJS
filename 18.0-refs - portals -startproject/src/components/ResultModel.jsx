@@ -1,4 +1,5 @@
 import { useImperativeHandle, useRef } from "react";
+import { createPortal } from "react-dom";
 
 //chỉ những gì được khai báo trong useImperativeHandle mới có thể truy cập từ cha.
 //Các biến, hàm, DOM khác là private, cha không truy cập được
@@ -21,7 +22,8 @@ export default function ResultModel({
       },
     };
   });
-  return (
+  //dùng createPortal để render dialog ra ngoài div#modal trong index.html trông code sạch sẽ hơn
+  return createPortal(
     <dialog ref={dialogPrivate} className="result-modal">
       {userLost ? (
         <h2>You lost 😢</h2>
@@ -42,6 +44,7 @@ export default function ResultModel({
       <form method="dialog" onSubmit={onReset}>
         <button>Close</button>
       </form>
-    </dialog>
+    </dialog>,
+    document.getElementById("modal")
   );
 }
